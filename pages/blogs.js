@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import BaseLayout from '../components/shared/layouts/BaseLayout';
 
-export class Index extends Component {
+export class Blogs extends Component {
   render() {
     return (
       <BaseLayout>
-        <p>Hello Next.js</p>
+        <h1>Not Your Average Blog</h1>
       </BaseLayout>
     );
   }
 }
 
-export default Index;
+export default Blogs;
