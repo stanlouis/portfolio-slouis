@@ -6,7 +6,6 @@ export class Header extends Component {
   render() {
     return (
       <nav>
-        <p className="customClass">I am styled from a file</p>
         <Link href="/">
           <a>Home | </a>
         </Link>
@@ -22,7 +21,7 @@ export class Header extends Component {
         <Link href="/cv">
           <a>CV</a>
         </Link>
-        <style jsx>
+        {/* <style jsx>
           {`
             nav {
               list-style-type: none;
@@ -37,7 +36,7 @@ export class Header extends Component {
               font-size: 20px;
             }
           `}
-        </style>
+        </style> */}
       </nav>
     );
   }
