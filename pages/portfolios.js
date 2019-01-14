@@ -1,13 +1,45 @@
 import React, { Component } from 'react';
 import BaseLayout from '../components/shared/layouts/BaseLayout';
+import axios from 'axios';
+import Link from 'next/link';
 
 export class Portfolios extends Component {
+  static async getInitialProps() {
+    let posts = {};
+    try {
+      const response = await axios.get(
+        'https://jsonplaceholder.typicode.com/posts'
+      );
+      posts = response.data;
+    } catch (e) {
+      console.log(err);
+    }
+
+    return { posts: posts.splice(0, 10) };
+  }
+
   render() {
+    console.log(this.props.posts);
+    const { posts } = this.props;
     return (
       <BaseLayout>
         <h1>My Portfolios</h1>
+        <ul>{this.displayPosts(posts)}</ul>
       </BaseLayout>
     );
+  }
+
+  displayPosts(posts) {
+    return posts.map(post => (
+      <li key={post.id}>
+        <Link
+          as={`/portfolio/${post.id}`}
+          href={`/portfolio?id=${post.id}`}
+        >
+          <a style={{ fontSize: '20px' }}>{post.title}</a>
+        </Link>
+      </li>
+    ));
   }
 }
 
