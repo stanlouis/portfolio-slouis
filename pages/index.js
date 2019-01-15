@@ -1,27 +1,15 @@
 import React, { Component } from 'react';
 import BaseLayout from '../components/shared/layouts/BaseLayout';
-import axios from 'axios';
+import { Button, Container } from 'reactstrap';
+
 
 export class Index extends Component {
-  static async getInitialProps() {
-    let userData = {};
-    try {
-      const response = await axios.get(
-        'https://jsonplaceholder.typicode.com/todos/1'
-      );
-      userData = response.data;
-    } catch (e) {
-      console.log(e);
-    }
-
-    return { initialData: [1, 2, 3], userData };
-  }
   render() {
-    const { userData, initialData } = this.props;
     return (
       <BaseLayout>
-        <p>Hello Next.js</p>
-        <p>{userData.title}</p>
+        <Container>
+          
+        </Container>
       </BaseLayout>
     );
   }

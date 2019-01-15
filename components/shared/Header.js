@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 
-import '../../styles/main.scss';
+
 export class Header extends Component {
   render() {
     return (
