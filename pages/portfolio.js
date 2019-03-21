@@ -1,19 +1,18 @@
-import React, { Component } from 'react';
-import { withRouter } from 'next/router';
-import axios from 'axios';
-import BaseLayout from '../components/shared/layouts/BaseLayout';
+import React, { Component } from "react";
+import { withRouter } from "next/router";
+import axios from "axios";
+import BaseLayout from "../components/shared/layouts/BaseLayout";
 
 export class Portfolio extends Component {
   static async getInitialProps({ query }) {
     const portfolioId = query.id;
-
     let portfolio = {};
     try {
       const response = await axios.get(
         `https://jsonplaceholder.typicode.com/posts/${portfolioId}`
       );
       portfolio = response.data;
-    } catch (e) {
+    } catch (err) {
       console.log(err);
     }
 
